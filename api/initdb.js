@@ -1,6 +1,6 @@
 import { sql } from '@vercel/postgres';
  
-export default async function handler(req,res) {
+export default async function handler(res,req) {
   try {
     const result =
       await sql`CREATE TABLE IF NOT EXISTS pets (id serial, Name varchar);`;

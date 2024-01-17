@@ -1,6 +1,11 @@
-export default function handler(res, req) {
+import { sql } from '@vercel/postgres';
+
+export default async function handler(res, req) {
+
+    const { rows } = await sql`select * from pets`;
 	res.status(200).json({
         method: req.method,
-         hello: "world" 
+         hello: "world",
+         pets: rows
         });
     }
